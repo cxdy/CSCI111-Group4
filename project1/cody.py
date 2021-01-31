@@ -1,0 +1,13 @@
+input1 = input("A name: ")
+input2 = input("A college: ")
+input3 = input("A company or business: ")
+input4 = input("A job or occupation: ")
+input5 = input("A foreign city: ")
+input6 = input("A restaurant: ")
+input7 = input("An activity: ")
+input8 = input("Another activity: ")
+input9 = input("An animal: ")
+input10 = input("Another name: ")
+input11 = input("A retailer store: ")
+
+print("There once lived a person named {} who just graduated from {}. After accepting a job with {} as a(n) {}, {} decided to first take a vacation to {}. Upon arriving in {}, {} planned to first visit {} before enjoying an evening of {} and {}. The next day, {} adopted a(n) {} named {} found in front of an abandoned {}. {} and {} lived happily ever after.".format(input1, input2, input3, input4, input1, input5, input5, input1, input6, input7, input8, input1, input9, input10, input11, input1, input10))
