@@ -22,7 +22,7 @@ yMath = (point2[1] - point1[1]) ** 2
 # Find the square root
 squareRoot = (xMath + yMath) ** 0.5
 
-print ("The distance between the two points is: ", squareRoot)
+print ("The distance between the two points is: {}".format(squareRoot))
 
 """
 EXAMPLE OUTPUT
@@ -31,5 +31,5 @@ Point #1 x-coord: -2
 Point #1 y-coord: 2
 Point #2 x-coord: 2
 Point #2 y-coord: -1
-('The distance between the two points is: ', 5.0)
+The distance between the two points is: 5.0
 """
