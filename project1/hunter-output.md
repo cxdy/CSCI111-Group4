@@ -1,15 +1,15 @@
 ```
 $ python3 hunter.py
-Please enter a person's name: Brian
-Please enter the name of a college: the Community College of Philadelphia
-Please enter the name of a company or business: Enron
-Please enter a job or occupation: accountant
-Please enter a foreign city: Tokyo
-Please enter a restaurant: Rainforest Cafe
-Please enter an activity: scuba diving
-Please enter another activity: paragliding
-Please enter an animal: emu
-Please enter another name: Dave
-Please enter a retail store: Blockbuster
-There once lived a person named Brian who just graduated from the Community College of Philadelphia. After accepting a job with Enron as a(n) accountant, Brian decided to first take a vacation to Tokyo. Upon arriving in Tokyo, Brian planned to first visit Rainforest Cafe before enjoying an evening of scuba diving and paragliding. The next day, Brian adopted a(n) emu named Dave found in front of an abandoned Blockbuster. Brian and Dave lived happily ever after.
+Please enter a landmass: the Artic
+Please enter a female name: Sally
+Please enter an adjective: wonderful
+Please enter a verb: throw
+Please enter a type of inclement weather: snow
+Please enter a type of food in the non-plural form: pizza
+Please enter another adjective: freezing
+Please enter a plural noun: computers
+Please enter a name: Steve
+Please enter another adjective: awesome
+Please enter another type of food in the non-plural form: dumpling
+Elsa is the frozen Queen of the Artic! Her sister's name is Sally, who she loves so much! Elsa has wonderful powers, too! She can throw ice, and make it snow. When she's angry, she sometimes accidentally creates pizza storms, which dump freezing hail and cold computers all over town! Don't worry, though. Her trusty pal, Steve, the snowman made from Elsa's awesome powers, with a dumpling for a nose, will guide her! Maybe Elsa can teach you how to make cold computers out of snow, too!
 ```
