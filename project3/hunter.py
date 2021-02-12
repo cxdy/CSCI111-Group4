@@ -6,9 +6,11 @@ year = int(input("Enter a year (>1000): "))
 number_of_days = ""
 
 # Start an if/elif chain that will determine the number of days in the month provided.
-if (month == 1) :
+if (month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12) :
   number_of_days = 31
-elif (month == 2) : 
+elif (month == 4 or month == 6 or month == 9 or month == 11) :
+  number_of_days = 30
+elif(month == 2):
   # When month equals 2, if the year provided has no remainder when both divided by 100 and 400 
   # or if the year has a remainder when divided by 100, but not when divided by 4, then assign 29 days.
   # Otherwise assign 28 days when month equals 2.
@@ -16,26 +18,7 @@ elif (month == 2) :
     number_of_days = 29
   else:
     number_of_days = 28
-elif (month == 3) :
-  number_of_days = 31
-elif (month == 4) :
-  number_of_days = 30
-elif (month == 5) :
-  number_of_days = 31
-elif (month == 6) : 
-  number_of_days = 30
-elif (month == 7) :
-  number_of_days = 31
-elif (month == 8) :
-  number_of_days = 31
-elif (month == 9) :
-  number_of_days = 30
-elif (month == 10) :
-  number_of_days = 31
-elif (month == 11) :
-  number_of_days = 30
-elif (month == 12) :
-  number_of_days = 31
+
 
 # Print the number of days with the month and year provided.
 print(f"There are {number_of_days} days in {month}/{year}")
