@@ -25,11 +25,7 @@ public class WallClock {
 
     // conversion method: seconds -> hh:mm:ss
     public void Convert(int i) {
-        // TODO
-        // Minute 59 -> 60 does not roll over the hour, just the minute
-        // Second 59 -> 60 does not roll over the minute, just the second
-        // I would assume 1:59:59 when adding a second would not go to the next hour either
-
+ 
         int secs = i % 60;
         int hrs = i / 60;
         int mins = hours % 60;
