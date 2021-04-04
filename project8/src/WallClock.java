@@ -1,4 +1,5 @@
 public class WallClock {
+    
     private int hours;
     private int minutes;
     private int seconds;
@@ -36,7 +37,13 @@ public class WallClock {
         // If the seconds in the parameter added to the cumulative time is greater than 24 hours (converted to seconds),
         // then spill over into a new day.
         if (deltaSeconds + cumulativeSecondTime > 86400) {
-            newCumulativeSecondTime = deltaSeconds + cumulativeSecondTime - 86400;
+            newCumulativeSecondTime = (deltaSeconds + cumulativeSecondTime) % 86400;
+        }
+        // If the sum of seconds in the parameter and cumulative time equals a negative value, get the
+        // negative remainder after dividing out days (in case the user enters a value greater than one day in seconds)
+        // and add it to the value equal to one day in seconds in order to get the final new cumulative seconds value.
+        else if (deltaSeconds + cumulativeSecondTime < 0) {
+            newCumulativeSecondTime = (deltaSeconds + cumulativeSecondTime) % 86400 + 86400;
         }
         else {
             newCumulativeSecondTime = deltaSeconds + cumulativeSecondTime;
