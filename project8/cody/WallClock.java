@@ -1,129 +1,63 @@
 package Project8;
 
 public class WallClock {
-    // Main class
 
-    // define private fields
     private int hours;
     private int minutes;
     private int seconds;
 
-    // constructor, sets default time to 00:00:00
-    String WallClock() {
-        hours = 00;
-        minutes = 00;
-        seconds = 00;
-        return hours + ":" + minutes + ":" + seconds;
+    public WallClock() {
+        reset();
     }
 
-    // reset method, resets time to default 00:00:00
-    public void Reset() {
-        hours = 00;
-        minutes = 00;
-        seconds = 00;
+    public void reset() {
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
     }
 
-    // conversion method: seconds -> hh:mm:ss
-    public void Convert(int i) {
- 
-        int secs = i % 60;
-        int hrs = i / 60;
-        int mins = hours % 60;
-
-        hours = hrs / 60;
-        minutes = mins;
-        seconds = secs;
-
+    public void forward(int secondsForward) {
+        computeNewTime(secondsForward);
     }
 
-    public void Forward(int i){
-        int oldHours = hours;
-        int oldMinutes = minutes;
-        int oldSeconds = seconds;
-
-        Convert(i);
-
-        int fixSeconds = 0;
-        int fixMinutes = 0;
-        int fixHours = 0;
-
-        if (seconds + oldSeconds > 59){
-            fixSeconds = (seconds + oldSeconds) - 59;
-            fixMinutes += 1;
-        } else {
-            fixSeconds += seconds + oldSeconds;
-        }
-
-        if (minutes + oldMinutes > 59) {
-            fixMinutes = (minutes + oldMinutes) - 59;
-            fixHours += 1;
-        } else {
-            fixMinutes += minutes + oldMinutes;
-        }
-
-        if (hours + oldHours > 23) {
-            fixHours += (hours + oldHours) - 23;
-        } else {
-            fixHours += hours + oldHours;
-        }
-
-        hours = fixHours;
-        minutes = fixMinutes;
-        seconds = fixSeconds;
-
-    }
-
-
-    public void Reverse(int i) {
-        // Reverse class
-        int oldHours = hours;
-        int oldMinutes = minutes;
-        int oldSeconds = seconds;
-
-        Convert(i);
-
-        int fixSeconds = 0;
-        int fixMinutes = 0;
-        int fixHours = 0;
-
-        if (seconds - oldSeconds > 59){
-            fixSeconds = (seconds - oldSeconds) - 59;
-            fixMinutes -= 1;
-        } else {
-            fixSeconds -= seconds - oldSeconds;
-        }
-
-        if (minutes - oldMinutes > 59) {
-            fixMinutes = (minutes - oldMinutes) - 59;
-            fixHours -= 1;
-        } else {
-            fixMinutes -= minutes - oldMinutes;
-        }
-
-        if (hours - oldHours > 23) {
-            fixHours -= (hours - oldHours) - 23;
-        } else {
-            fixHours -= hours - oldHours;
-        }
-
-        hours = fixHours;
-        minutes = fixMinutes;
-        seconds = fixSeconds;
-
+    public void reverse(int secondsBack) {
+        computeNewTime(-secondsBack);
     }
 
     public String getTime() {
-        // initialize string variables for the time
-        String hrs;
-        String mins;
-        String secs;
+        // For the three inline if statement, see whether a 0 is needed in front of either hours, minutes, or seconds.
+        String stringHours = hours < 10 ? "0" + hours : Integer.toString(hours);
+        String stringMinutes = minutes < 10 ? "0" + minutes : Integer.toString(minutes);
+        String stringSeconds = seconds < 10 ? "0" + seconds : Integer.toString(seconds);
+        return stringHours + ":" + stringMinutes + ":" + stringSeconds;
+    }
 
-        // adding a single zero in front of single digit numbers
-        // otherwise returning them as they are
-        if (hours < 10) { hrs = "0" + hours; ; } else { hrs = Integer.toString(hours); }
-        if (minutes < 10) { mins = "0" + minutes; } else { mins = Integer.toString(minutes); }
-        if (seconds < 10) { secs = "0" + seconds; } else { secs = Integer.toString(seconds); }
-
-        return hrs + ":" + mins + ":" + secs;
+    private void computeNewTime(int deltaSeconds) {
+        // Get the current time summed in seconds.
+        int cumulativeSecondTime = (hours * 3600) + (minutes * 60) + seconds;
+        int newCumulativeSecondTime;
+        // If the seconds in the parameter added to the cumulative time is greater than 24 hours (converted to seconds),
+        // then spill over into a new day by getting the remainder after dividing out one day in seconds.
+        if (deltaSeconds + cumulativeSecondTime > 86400) {
+            newCumulativeSecondTime = (deltaSeconds + cumulativeSecondTime) % 86400;
+        }
+        // If the sum of seconds in the parameter and cumulative time equals a negative value, get the
+        // negative remainder after dividing out days (in case the user enters a value greater than one day in seconds)
+        // and add it to the value equal to one day in seconds in order to get the final new cumulative seconds value.
+        else if (deltaSeconds + cumulativeSecondTime < 0) {
+            newCumulativeSecondTime = (deltaSeconds + cumulativeSecondTime) % 86400 + 86400;
+        }
+        else {
+            newCumulativeSecondTime = deltaSeconds + cumulativeSecondTime;
+        }
+        // Get the hours rounded down to the nearest int.
+        hours = newCumulativeSecondTime / 3600;
+        // Get the remaining minutes from calculating the remainder when dividing out hours.
+        int remainingMinutes = newCumulativeSecondTime % 3600;
+        // Get the minutes rounded down to the nearest int.
+        minutes = remainingMinutes / 60;
+        // Get the remaining seconds by calculating the remainder of the remaining minutes by/modulo 60.
+        int remainingSeconds = remainingMinutes % 60;
+        seconds = remainingSeconds;
     }
 }
