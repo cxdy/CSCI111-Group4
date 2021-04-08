@@ -1,24 +1,33 @@
 public class WallClock {
 
+    // The three int values that when used in tandem represent a WallClock instance's current time.
     private int hours;
     private int minutes;
     private int seconds;
 
+    // A constructor that takes no arguments and instantiates hours, minutes, and seconds to zero.
     public WallClock() {
-        reset();
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
     }
 
+    // A method that sets the clock to zero hundred hours.
     public void reset() {
         hours = 0;
         minutes = 0;
         seconds = 0;
     }
 
+    // A method called by the user when they want to advanced the time on the clock forward.
     public void forward(int secondsForward) {
+        // Call the computeNewTime method with the seconds passed into the forward method.
         computeNewTime(secondsForward);
     }
 
+    // A method called by the user when they want to turn the time back on the clock.
     public void reverse(int secondsBack) {
+        // Call the computeNewTime method with the negative seconds passed into the reverse method.
         computeNewTime(-secondsBack);
     }
 
