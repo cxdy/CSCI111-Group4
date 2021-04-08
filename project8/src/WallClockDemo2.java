@@ -27,12 +27,7 @@ public class WallClockDemo2 {
             String enteredCommand = command[0];
             // initialize enteredSeconds
             int enteredSeconds;
-            // This doesn't work.
-            // if there is no argument for the command, set it to zero
-            // meant to avoid an IndexLength error
-            // TIME> reset
-            // Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
-            // at Project8.ClockDemo.main(ClockDemo.java:23)
+            // Check to see if the user has inputted seconds and account for no seconds entered if not.
             if (command.length == 1) {
                 enteredSeconds = 0;
             } else {
