@@ -35,7 +35,7 @@ public class ClockDemo {
             // TIME> reset
             // Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
             // at Project8.ClockDemo.main(ClockDemo.java:23)
-            if (command[1] == null || command[1].length() == 0) {
+            if (command.length == 1) {
                 enteredSeconds = 0;
             } else {
                 enteredSeconds = Integer.parseInt(command[1]);
