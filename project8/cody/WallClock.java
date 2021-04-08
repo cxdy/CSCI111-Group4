@@ -52,6 +52,9 @@ public class WallClock {
         }
         // Get the hours rounded down to the nearest int.
         hours = newCumulativeSecondTime / 3600;
+
+        if (hours >= 24) { hours = 0; }
+
         // Get the remaining minutes from calculating the remainder when dividing out hours.
         int remainingMinutes = newCumulativeSecondTime % 3600;
         // Get the minutes rounded down to the nearest int.
