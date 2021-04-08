@@ -22,7 +22,7 @@ public class ClockDemo {
             System.out.print("TIME> ");
             // get user input
             String userInput = input.nextLine();
-            // split command and args into array
+            // split command and args into array using regular expression
             String[] command = userInput.split("\\s+");
 
             // grab the command
@@ -49,17 +49,17 @@ public class ClockDemo {
                     break;
                 // forward [seconds] and returns the time
                 case "forward":
-                    newClock.Forward(enteredSeconds);
+                    newClock.forward(enteredSeconds);
                     System.out.println("The new time is: " + newClock.getTime());
                     break;
                 // reverse [seconds] and returns the time
                 case "reverse":
-                    newClock.Reverse(enteredSeconds);
+                    newClock.reverse(enteredSeconds);
                     System.out.println("The new time is: " + newClock.getTime());
                     break;
                 // reset and returns time
                 case "reset":
-                    newClock.Reset();
+                    newClock.reset();
                     System.out.println("The time has been reset to: " + newClock.getTime());
                     break;
                 // exits program
