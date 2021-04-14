@@ -1,15 +1,15 @@
 public class ComboLockDemo {
     public static void main(String[] args) {
-        ComboLock comboLock = new ComboLock(26, 12, 33);
-        comboLock.turnCounterClockwise(26);
-        comboLock.turnClockwise(14);
-        comboLock.turnCounterClockwise(21);
+        ComboLock comboLock = new ComboLock(0,0,0;
+        comboLock.turnCounterClockwise(0);
+        comboLock.turnClockwise(0);
+        comboLock.turnCounterClockwise(0);
         System.out.println(if comboLock.open("Open"));
 
-        ComboLock comboLock1 = new ComboLock(450, -500, 20);
-        comboLock1.turnCounterClockwise(39);
-        comboLock1.turnClockwise(39);
-        comboLock1.turnCounterClockwise(20);
+        ComboLock comboLock1 = new ComboLock(0,0,0);
+        comboLock1.turnCounterClockwise(0);
+        comboLock1.turnClockwise(0);
+        comboLock1.turnCounterClockwise(0);
         System.out.println(if comboLock.open("Open"));
     }
 }
