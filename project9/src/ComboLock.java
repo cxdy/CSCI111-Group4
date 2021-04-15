@@ -26,13 +26,13 @@ public class ComboLock {
         clockwiseInput = 0;
         counterClockwise2Input = 0;
         currentDialReading = 0;
+        turn = 0;
     }
 
     public void turnClockwise(int clockwiseAmount) {
-        // Take the absolute value of the current dial reading minus the input from the user,
-        // then take the modulo 40 of that, which will eliminate values above 39, then set it as the
-        // new current dial reading.
-        currentDialReading = Math.abs(currentDialReading - clockwiseAmount) % 40;
+        // Take the absolute value of the current dial reading minus modulo 40 of the input from the user (which will
+        // eliminate values above 39), then set the result as the new current dial reading.
+        currentDialReading = Math.abs(currentDialReading - (clockwiseAmount % 40));
         // Set the clockwise input to the calculation found above.
         clockwiseInput = currentDialReading;
         // Iterate the turn.
