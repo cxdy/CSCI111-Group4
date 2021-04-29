@@ -4,35 +4,35 @@ public class ComboLockDemo {
 
     public static void main(String[] args) {
 
-        // init scanner for keyboard input.
+        // Init scanner for keyboard input.
         Scanner input = new Scanner(System.in);
 
-        // set combination by constructing new ComboLock object.
+        // Set combination by constructing new ComboLock object.
         ComboLock Combo = new ComboLock(26, 12, 33);
 
-        // vars to store each turn.
+        // Vars to store each turn.
         int turn1;
         int turn2;
         int turn3;
 
-        // loop for endless retries.
+        // Loop for endless retries.
         while (true) {
-            // grab input for first turn.
+            // Grab input for first turn.
             System.out.print("Enter turn #1: ");
             turn1 = input.nextInt();
-            // call function turnCounterClockwise.
+            // Call function turnCounterClockwise.
             Combo.turnCounterClockwise(turn1);
-            // second turn.
+            // Second turn.
             System.out.print("Enter turn #2: ");
             turn2 = input.nextInt();
-            // this time go clockwise.
+            // This time go clockwise.
             Combo.turnClockwise(turn2);
             System.out.print("Enter turn #3: ");
             turn3 = input.nextInt();
             Combo.turnCounterClockwise(turn3);
-            // attempt to open, true means unlocked.
+            // Attempt to open, true means unlocked.
             System.out.println(Combo.open());
-            // reset the previous attempts.
+            // Reset the previous attempts.
             Combo.reset();
         }
     }
